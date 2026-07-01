@@ -1,4 +1,18 @@
-const BASE = import.meta.env.VITE_API_URL || 'http://localhost:3000/api';
+// Normalize VITE_API_URL so a misconfigured value can't produce a broken URL:
+// - default to the local backend when unset
+// - prepend https:// when the protocol is missing (otherwise fetch treats it as
+//   a relative path and glues it onto the site's own origin)
+// - drop any trailing slash, then ensure the base ends with /api (the backend
+//   mounts every route under /api)
+function normalizeBase(raw) {
+  let base = (raw || 'http://localhost:3000/api').trim();
+  if (!/^https?:\/\//i.test(base)) base = `https://${base}`;
+  base = base.replace(/\/+$/, '');
+  if (!/\/api$/i.test(base)) base = `${base}/api`;
+  return base;
+}
+
+const BASE = normalizeBase(import.meta.env.VITE_API_URL);
 const AUTH_KEY = 'auth';
 
 // Read the token straight from storage so this module stays free of circular

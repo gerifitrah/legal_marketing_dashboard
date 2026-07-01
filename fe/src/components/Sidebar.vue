@@ -49,6 +49,11 @@ function logout() {
           <i class="ph ph-wallet"></i> Cash Flow
         </router-link>
       </li>
+      <li class="nav-item">
+        <router-link to="/register" class="nav-link" exact-active-class="active">
+          <i class="ph ph-user-plus"></i> Tambah User
+        </router-link>
+      </li>
     </ul>
 
     <div class="sidebar-footer">

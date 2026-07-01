@@ -11,7 +11,7 @@ import Register from '../views/Register.vue';
 
 const routes = [
   { path: '/login', name: 'login', component: Login, meta: { public: true } },
-  { path: '/register', name: 'register', component: Register, meta: { public: true } },
+  { path: '/register', name: 'register', component: Register },
   { path: '/', name: 'dashboard', component: Dashboard },
   { path: '/input-project', name: 'input-project', component: InputProject },
   { path: '/kanban', name: 'kanban', component: Kanban },

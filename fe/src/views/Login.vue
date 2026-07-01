@@ -46,11 +46,6 @@ async function submit() {
           <i class="ph ph-sign-in"></i> {{ loading ? 'Memproses...' : 'Login' }}
         </button>
       </form>
-
-      <p class="auth-alt">
-        Belum punya akun?
-        <router-link to="/register">Daftar di sini</router-link>
-      </p>
     </div>
   </div>
 </template>
@@ -97,15 +92,5 @@ async function submit() {
   border-radius: 10px;
   font-size: 0.85rem;
   margin-bottom: 16px;
-}
-.auth-alt {
-  margin-top: 20px;
-  font-size: 0.9rem;
-  color: var(--text-muted);
-}
-.auth-alt a {
-  color: var(--text-main);
-  font-weight: 600;
-  text-decoration: none;
 }
 </style>

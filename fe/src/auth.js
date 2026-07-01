@@ -28,11 +28,12 @@ export const auth = reactive({
     this._persist();
   },
 
-  async register(username, password) {
+  // Register a new account without touching the current session. Used by an
+  // already-authenticated user to create additional accounts from inside the
+  // app, so the creator stays logged in. Returns the created user.
+  async registerUser(username, password) {
     const data = await api.register({ username, password });
-    this.token = data.token;
-    this.user = data.user;
-    this._persist();
+    return data.user;
   },
 
   logout() {
